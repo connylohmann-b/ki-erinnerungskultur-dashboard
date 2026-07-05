@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>KI & Erinnerungskultur Intelligence Dashboard</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="site-header">
+        <div>
+          <p class="eyebrow">Landscape-Analyse</p>
+          <h1>KI & Erinnerungskultur</h1>
+          <p class="subtitle">Intelligence Dashboard zu Kerndiskussionen, Stakeholdern und Vorreiter-Projekten.</p>
+        </div>
+        <div class="header-meta">
+          <span>Stand: Juni 2026</span>
+          <button id="refreshButton" class="icon-button" type="button" aria-label="Datenstatus anzeigen" title="Datenstatus anzeigen">↻</button>
+        </div>
+      </header>
+
+      <nav class="section-tabs" aria-label="Hauptsektionen">
+        <button class="section-tab is-active" type="button" data-section="topics">Kerndiskussionen</button>
+        <button class="section-tab" type="button" data-section="stakeholders">Stakeholder</button>
+        <button class="section-tab" type="button" data-section="projects">Vorreiter-Projekte</button>
+      </nav>
+
+      <main>
+        <section id="section-topics" class="section-panel is-active" aria-labelledby="topics-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Sektion A</p>
+              <h2 id="topics-title">Kerndiskussionen</h2>
+            </div>
+            <div class="filters" aria-label="Filter">
+              <select id="topicTypeFilter" aria-label="Quellentyp filtern">
+                <option value="all">Alle Typen</option>
+              </select>
+              <select id="topicLanguageFilter" aria-label="Sprache filtern">
+                <option value="all">Alle Sprachen</option>
+                <option value="de">Deutsch</option>
+                <option value="en">Englisch</option>
+              </select>
+            </div>
+          </div>
+          <div id="topicPills" class="pill-row" aria-label="Themenfelder"></div>
+          <div id="topicsSummary" class="summary-strip"></div>
+          <div id="topicArticles" class="card-grid"></div>
+        </section>
+
+        <section id="section-stakeholders" class="section-panel" aria-labelledby="stakeholders-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Sektion B</p>
+              <h2 id="stakeholders-title">Stakeholder & Positionen</h2>
+            </div>
+          </div>
+          <div id="stakeholderGroups" class="stack"></div>
+        </section>
+
+        <section id="section-projects" class="section-panel" aria-labelledby="projects-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Sektion C</p>
+              <h2 id="projects-title">Vorreiter & innovative Beispiele</h2>
+            </div>
+            <div class="segmented-control" aria-label="Projektregion">
+              <button class="segment is-active" type="button" data-project-group="international">International</button>
+              <button class="segment" type="button" data-project-group="national">Deutschland</button>
+            </div>
+          </div>
+          <div id="projectSummary" class="summary-strip"></div>
+          <div id="projectsGrid" class="project-grid"></div>
+        </section>
+      </main>
+    </div>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <script src="./data.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
